@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Elonkou&#39;s blog</title>
   
-  
+  <subtitle>SO SAFE.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-20T17:17:47.798Z</updated>
+  <updated>2019-08-20T17:32:49.285Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="http://yoursite.com/2019/08/21/hello-world/"/>
     <id>http://yoursite.com/2019/08/21/hello-world/</id>
-    <published>2019-08-20T17:17:47.798Z</published>
-    <updated>2019-08-20T17:17:47.798Z</updated>
+    <published>2019-08-20T17:32:49.285Z</published>
+    <updated>2019-08-20T17:32:49.285Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,8 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;p&gt;&lt;code&gt;hexo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post.
         
       
     
