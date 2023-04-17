@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"elonkou.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="[太极图形1] taichi真“星”际穿越taichi介绍太极图形的刘天添之前直播讲解了 **《直播活动 | 96 行代码的「星际穿越」 特效动画，新手也能实现！》**，看起来非常趣，直播的时候我也实现了一下，只不过当时直播到后边没时间写了，就搁置了，今天刚好有时间，所以再来完善一下。 直播课程录播回放在这里： 从 0 到 1 用 Taichi 实现「星际穿越」特效动画 | 太极图形课讲师回归！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[太极图形1] taichi真“星”际穿越">
+<meta property="og:url" content="http://elonkou.github.io/2023/04/17/taichi_1_star/index.html">
+<meta property="og:site_name" content="ElonKou&#39;s blog">
+<meta property="og:description" content="[太极图形1] taichi真“星”际穿越taichi介绍太极图形的刘天添之前直播讲解了 **《直播活动 | 96 行代码的「星际穿越」 特效动画，新手也能实现！》**，看起来非常趣，直播的时候我也实现了一下，只不过当时直播到后边没时间写了，就搁置了，今天刚好有时间，所以再来完善一下。 直播课程录播回放在这里： 从 0 到 1 用 Taichi 实现「星际穿越」特效动画 | 太极图形课讲师回归！">
+<meta property="og:locale">
+<meta property="og:image" content="http://elonkou.github.io/resources/taichi_star/star1.gif">
+<meta property="og:image" content="http://elonkou.github.io/resources/taichi_star/star2.png">
+<meta property="og:image" content="http://elonkou.github.io/resources/taichi_star/star3.png">
+<meta property="og:image" content="http://elonkou.github.io/resources/taichi_star/star4.png">
+<meta property="og:image" content="http://elonkou.github.io/resources/taichi_star/satr5.png">
+<meta property="article:published_time" content="2023-04-17T03:49:52.000Z">
+<meta property="article:modified_time" content="2023-04-17T04:08:38.717Z">
+<meta property="article:author" content="Elon Kou">
+<meta property="article:tag" content="taichi">
+<meta property="article:tag" content="SDF">
+<meta property="article:tag" content="太极图形">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://elonkou.github.io/resources/taichi_star/star1.gif">
+
+<link rel="canonical" href="http://elonkou.github.io/2023/04/17/taichi_1_star/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>[太极图形1] taichi真“星”际穿越 | ElonKou's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ElonKou's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Less is more, but more is different.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://elonkou.github.io/2023/04/17/taichi_1_star/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Elon Kou">
+      <meta itemprop="description" content="Programmer & Designer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ElonKou's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [太极图形1] taichi真“星”际穿越
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-04-17 11:49:52 / Modified: 12:08:38" itemprop="dateCreated datePublished" datetime="2023-04-17T11:49:52+08:00">2023-04-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="太极图形1-taichi真“星”际穿越"><a href="#太极图形1-taichi真“星”际穿越" class="headerlink" title="[太极图形1] taichi真“星”际穿越"></a>[太极图形1] taichi真“星”际穿越</h1><h1 id="taichi介绍"><a href="#taichi介绍" class="headerlink" title="taichi介绍"></a>taichi介绍</h1><p>太极图形的刘天添之前直播讲解了 **<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/574728205">《直播活动 | 96 行代码的「星际穿越」 特效动画，新手也能实现！》</a>**，看起来非常趣，直播的时候我也实现了一下，只不过当时直播到后边没时间写了，就搁置了，今天刚好有时间，所以再来完善一下。</p>
+<p>直播课程录播回放在这里：</p>
+<p><strong><strong>从 0 到 1 用 Taichi 实现「星际穿越」特效动画 | 太极图形课讲师回归！</strong></strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1at4y1K76P">从 0 到 1 用 Taichi 实现「星际穿越」特效动画 | 太极图形课讲师回归！_哔哩哔哩_bilibili</a></p>
+<p>taichi是一款嵌入在Python中的高性能编程语言，适用于并行计算的一些场景，文档在这里：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.taichi-lang.org/">Taichi Docs</a></p>
+<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p>首先展示一“真”星际穿越的效果，为什么说“真”呢，因为我们真的有“星星”😝。</p>
+<p><img src="/../resources/taichi_star/star1.gif" alt="屏幕录制2022-11-08 下午8.09.54.gif"></p>
+<p>静态图像可以看出星星</p>
+<p><img src="/../resources/taichi_star/star2.png" alt="截屏2022-11-08 下午7.57.26.png"></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>框架实现的内容也比较简单，使用几个三维的field来维护全局的数据。</p>
+<ul>
+<li>首先对整个空间进行栅格化，每个网格中安排一个粒子，然后初始化粒子的基本属性比如位置，颜色等，速度等。</li>
+<li>接下来就是3D-2D投影，顾名思义，就是将空间中的物体位置投影到2D屏幕坐标中。</li>
+<li>接下来绘制物体的时候用到了一种SDF的模型，这种隐式的物体表示方式将空间视作一个物体的形状场，场中的每个采样点的数值表示距离此物体的边界的最近距离。</li>
+</ul>
+<p>天添老师在绘制物体的时候，介绍了几个优化方式。其中的一个就是，首先计算一个bounding box，然后对栅格化的像素画着色，这样可以避免处理大量的无效的像素。另外一个优化就是使用了taichi并行加速的计算，这是保证实时的关键。</p>
+<h2 id="3D-2D投影"><a href="#3D-2D投影" class="headerlink" title="3D-2D投影"></a>3D-2D投影</h2><p>投影这里采用的原始的代码实现（照抄），基本就是一个坐标变换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">project</span>(<span class="params">pos_3d</span>):</span><br><span class="line">    center = ti.Vector(res) / <span class="number">2</span></span><br><span class="line">    w = tan_half_fov * pos_3d.z</span><br><span class="line">    res_pos = (ti.Vector([pos_3d.x, pos_3d.y]) - center) / w</span><br><span class="line">    screen_pos = res_pos * res[<span class="number">1</span>] + center</span><br><span class="line">    <span class="keyword">return</span> screen_pos</span><br></pre></td></tr></table></figure>
+
+<p>投影完成之后，问题就是如果绘制这个屏幕上的物体。这里就要用到SDF绘制的内容。</p>
+<h2 id="SDF和基于SDF的2D图形"><a href="#SDF和基于SDF的2D图形" class="headerlink" title="SDF和基于SDF的2D图形"></a>SDF和基于SDF的2D图形</h2><p>绘制最简单的图形就是2D圆了，那么如何使用SDF表示一个圆呢？</p>
+<p>$$<br>d &#x3D; \Vert \bm p - \bm o \Vert - r<br>$$</p>
+<p>这就是最简单的一个圆的SDF表示，其中 $\bm p$ 表示空间中任意一点，$\bm o$ 表示圆形的位置，$r$ 当然就是半径了。这样表示之后，如何渲染到屏幕上呢？一种简单的方式就是直接遍历屏幕上所有的点，如果这个点在圆的范围以内，就绘制出来，否则填充一个背景色。</p>
+<p>到了这里就发现SDF的妙用，即sdf的每一个采样数据代表了空间中这一点到物体的最近表面的距离，这样可以直接用来判断点是否在圆内。</p>
+<p>接下来看一下代码实现，首先定义圆的SDF模型。</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> circle(<span class="type">vec2</span> d, <span class="type">float</span> radius)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">length</span>(d) - radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是渲染，渲染出来的效果如下图</p>
+<p><img src="/../resources/taichi_star/star3.png" alt="截屏2022-11-08 下午8.57.21.png"></p>
+<p>中间蓝色表示SDF为负值，外边紫色表示正指，值的大小表示到表面距离的远近，鼠标点也绘制了一个蓝色实心圆圈。</p>
+<p>上图是使用GLSL渲染完成的，完整的shader代码如下。</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">out</span> <span class="type">vec4</span> fragColor;</span><br><span class="line"><span class="keyword">in</span> <span class="type">vec2</span> fragCoord;</span><br><span class="line"></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> texture_diffuse1;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec3</span>      iResolution;           <span class="comment">// [x] viewport resolution (in pixels)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iTime;                 <span class="comment">// [x] shader playback time (in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iTimeDelta;            <span class="comment">// [x] render time (in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">int</span>       iFrame;                <span class="comment">// [x] shader playback frame</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iChannelTime[<span class="number">4</span>];       <span class="comment">// [ ] channel playback time (in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec3</span>      iChannelResolution[<span class="number">4</span>]; <span class="comment">// [ ] channel resolution (in pixels)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec4</span>      iMouse;                <span class="comment">// [x] mouse pixel coords. xy: current (if MLB down), zw: click</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel0;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel1;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel2;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel3;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec4</span>      iDate;                 <span class="comment">// [ ] (year, month, day, time in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iSampleRate;           <span class="comment">// [ ] sound sample rate (i.e., 44100)</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> circle(<span class="type">vec2</span> d, <span class="type">float</span> radius)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">length</span>(d) - radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">vec3</span> render(<span class="type">vec2</span> uv, <span class="type">float</span> d)&#123;</span><br><span class="line">    <span class="type">vec2</span> m  = (<span class="number">2.0</span> * iMouse.xy - iResolution.xy)/iResolution.y;</span><br><span class="line">    <span class="type">vec3</span> col = <span class="type">vec3</span>(<span class="number">0.0</span>);</span><br><span class="line">    <span class="type">vec3</span> inner_col = <span class="type">vec3</span>(<span class="number">0.25</span>, <span class="number">0.85</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec3</span> outer_col = <span class="type">vec3</span>(<span class="number">0.65</span>, <span class="number">0.35</span>, <span class="number">0.76</span>);</span><br><span class="line">    <span class="keyword">if</span>(d &lt; <span class="number">0.0</span>)&#123;</span><br><span class="line">        col = inner_col;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        col = outer_col;</span><br><span class="line">    &#125;</span><br><span class="line">    col = col * (<span class="number">1.0</span> -  <span class="built_in">exp</span>(<span class="number">-6.0</span> * <span class="built_in">abs</span>(d)));</span><br><span class="line">    col = col * (<span class="number">0.8</span> + <span class="number">0.2</span> * <span class="built_in">cos</span>(d * <span class="number">250</span>));</span><br><span class="line">    <span class="type">float</span> c = <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">0.01</span>, <span class="built_in">abs</span>(d));</span><br><span class="line">    col = <span class="built_in">mix</span>(col, <span class="type">vec3</span>(<span class="number">1.0</span>), <span class="number">1.0</span> - c);</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> dc = circle(m, <span class="number">0.5</span>);</span><br><span class="line">    col = <span class="built_in">mix</span>(col, <span class="type">vec3</span>(<span class="number">0.8</span>, <span class="number">0.5</span>, <span class="number">0.0</span>), <span class="number">1.0</span> - <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">0.004</span>, <span class="built_in">abs</span>(<span class="built_in">length</span>(uv-m)-<span class="built_in">abs</span>(dc)) <span class="number">-0.002</span>));</span><br><span class="line">    col = <span class="built_in">mix</span>(col, <span class="type">vec3</span>(<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>), <span class="number">1.0</span> - <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">0.003</span>, <span class="built_in">length</span>(uv - m) <span class="number">-0.015</span>));</span><br><span class="line">    <span class="keyword">return</span> col;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> main() &#123;</span><br><span class="line">    <span class="type">vec2</span> uv = (<span class="number">2.0</span> * fragCoord - iResolution.xy)/iResolution.y;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> d = circle(uv, <span class="number">0.5</span>); <span class="comment">// comnpute disatnce</span></span><br><span class="line">    <span class="type">vec3</span> col = render(uv, d);  <span class="comment">// render</span></span><br><span class="line"></span><br><span class="line">    fragColor = <span class="type">vec4</span>(col, <span class="number">1.0</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>渲染部分参照</p>
+<p><a target="_blank" rel="noopener" href="https://iquilezles.org/articles/distfunctions2d/">Inigo Quilez</a></p>
+<p>使用taichi的语言绘制就是这样的内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_particle</span>(<span class="params">c, rad, col</span>):</span><br><span class="line">    x_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.x - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.x + rad + <span class="number">1</span>), res[<span class="number">0</span>]))</span><br><span class="line">    y_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.y - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.y + rad + <span class="number">1</span>), res[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(ti.ndrange(x_range, y_range)):</span><br><span class="line">        dist = (I - c).norm() <span class="comment"># compuate distance</span></span><br><span class="line">        <span class="keyword">if</span> dist &lt; rad:</span><br><span class="line">            pixels[I] = col <span class="comment"># writed color into pixel field.</span></span><br></pre></td></tr></table></figure>
+
+<p>同样，2D直线绘制也很简单，只不过需要注意，两端点出的SDF场和中间直线的场的关系。</p>
+<p>对于空间中任意一点，可以通过投影到线段上的法线，判断符号来确定真正的距离。</p>
+<p>在这里的，我的视线如下图所示，和天添老师实现略有不同，但原理是一样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_line</span>(<span class="params">p1, p2, rad, col</span>):</span><br><span class="line">    x_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(ti.<span class="built_in">min</span>(p1.x, p2.x) - rad - <span class="number">1.0</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(ti.<span class="built_in">max</span>(p1.x, p2.x) + rad + <span class="number">1.0</span>), res[<span class="number">0</span>]))</span><br><span class="line">    y_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(ti.<span class="built_in">min</span>(p1.y, p2.y) - rad - <span class="number">1.0</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(ti.<span class="built_in">max</span>(p1.y, p2.y) + rad + <span class="number">1.0</span>), res[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(ti.ndrange(x_range, y_range)):</span><br><span class="line">        p1I = I - p1</span><br><span class="line">        p2I = I - p2</span><br><span class="line">        p1p2_norm = (p2 - p1).normalized()</span><br><span class="line">        p = p1 + p1I.dot(p1p2_norm) * p1p2_norm  <span class="comment"># point on th line of [p1, p2]</span></span><br><span class="line">        dist_p = (I - p).norm()</span><br><span class="line">        dist_p1p2 = ti.<span class="built_in">min</span>(p1I.norm(), p2I.norm())</span><br><span class="line">        dist_line = dist_p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p1I.dot(p1p2_norm) &lt; <span class="number">0</span>) <span class="keyword">or</span> (p2I.dot(p1p2_norm) &gt; <span class="number">0</span>): <span class="comment"># compuate range</span></span><br><span class="line">            dist_line = dist_p1p2</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> dist_line &lt; rad:</span><br><span class="line">            pixels[I] = col</span><br></pre></td></tr></table></figure>
+
+<p>当然，我们既然写的是星际穿越，我们就要绘制一系列移动的星星，不然怎么叫“星”际穿越呢，哈哈哈哈。</p>
+<p>这里参照了shadertoy 巨佬iq的实现，SDF在模型表示上潜力巨大，甚至可以绘制人物，膜！</p>
+<p><a target="_blank" rel="noopener" href="https://iquilezles.org/articles/distfunctions2d/">Inigo Quilez</a></p>
+<p>首先GLSL的实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> sdStar5(<span class="keyword">in</span> vec2 p, <span class="keyword">in</span> <span class="built_in">float</span> r, <span class="keyword">in</span> <span class="built_in">float</span> rf)</span><br><span class="line">&#123;</span><br><span class="line">    const vec2 k1 = vec2(<span class="number">0.809016994375</span>, -<span class="number">0.587785252292</span>);</span><br><span class="line">    const vec2 k2 = vec2(-k1.x,k1.y);</span><br><span class="line">    p.x = <span class="built_in">abs</span>(p.x);</span><br><span class="line">    p -= <span class="number">2.0</span>*<span class="built_in">max</span>(dot(k1,p),<span class="number">0.0</span>)*k1;</span><br><span class="line">    p -= <span class="number">2.0</span>*<span class="built_in">max</span>(dot(k2,p),<span class="number">0.0</span>)*k2;</span><br><span class="line">    p.x = <span class="built_in">abs</span>(p.x);</span><br><span class="line">    p.y -= r;</span><br><span class="line">    vec2 ba = rf*vec2(-k1.y,k1.x) - vec2(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">float</span> h = clamp( dot(p,ba)/dot(ba,ba), <span class="number">0.0</span>, r );</span><br><span class="line">    <span class="keyword">return</span> length(p-ba*h) * sign(p.y*ba.x-p.x*ba.y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后替换距离场。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> d = sdStar5(uv, <span class="number">0.5</span>, <span class="number">0.6</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就可以绘制一个五角星了。</p>
+<p><img src="/../resources/taichi_star/star4.png" alt="截屏2022-11-08 下午9.17.25.png"></p>
+<p>然后是taichi的实现，在taichi实现上，我们需要对屏幕的坐标做一点小小的变化。</p>
+<p>就是需要将屏幕上坐标从$[x_0, x_1]$ 和$[y_0, y_1]$ 都变换到$[-0.5, 0.5]$上，这样方便我们的绘制（理论上不用变化坐标依然可以绘制）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_star</span>(<span class="params">c, rad, col</span>):</span><br><span class="line">    rf = <span class="number">0.6</span></span><br><span class="line">    x_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.x - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.x + rad + <span class="number">1</span>), res[<span class="number">0</span>]))</span><br><span class="line">    y_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.y - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.y + rad + <span class="number">1</span>), res[<span class="number">1</span>]))</span><br><span class="line">    width = x_range[<span class="number">1</span>] - x_range[<span class="number">0</span>]</span><br><span class="line">    height = y_range[<span class="number">1</span>] - y_range[<span class="number">0</span>]</span><br><span class="line">    rad = rad / width</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(ti.ndrange(x_range, y_range)):</span><br><span class="line">        <span class="comment"># convert image space to viewport.</span></span><br><span class="line">        p = I - ti.Vector([(x_range[<span class="number">0</span>] + x_range[<span class="number">1</span>]) * <span class="number">0.5</span>, (y_range[<span class="number">0</span>] + y_range[<span class="number">1</span>]) * <span class="number">0.5</span>])</span><br><span class="line">        p[<span class="number">0</span>] = p[<span class="number">0</span>] / width  <span class="comment"># [-0.5, 0.5]</span></span><br><span class="line">        p[<span class="number">1</span>] = p[<span class="number">1</span>] / height  <span class="comment"># [-0.5, 0.5]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># generate distance field of 2D-stars</span></span><br><span class="line">        k1 = ti.Vector([<span class="number">0.809016994375</span>, -<span class="number">0.587785252292</span>])</span><br><span class="line">        k2 = ti.Vector([-k1[<span class="number">0</span>], k1[<span class="number">1</span>]])</span><br><span class="line">        p[<span class="number">0</span>] = ti.<span class="built_in">abs</span>(p[<span class="number">0</span>])</span><br><span class="line">        p -= <span class="number">2.0</span> * ti.<span class="built_in">max</span>(k1.dot(p), <span class="number">0.0</span>) * k1</span><br><span class="line">        p -= <span class="number">2.0</span> * ti.<span class="built_in">max</span>(k2.dot(p), <span class="number">0.0</span>) * k2</span><br><span class="line">        p[<span class="number">0</span>] = ti.<span class="built_in">abs</span>(p[<span class="number">0</span>])</span><br><span class="line">        p[<span class="number">1</span>] -= rad</span><br><span class="line"></span><br><span class="line">        ba = rf * ti.Vector([-k1[<span class="number">1</span>], k1[<span class="number">0</span>]]) - ti.Vector([<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">        h = p.dot(ba) / ba.dot(ba)</span><br><span class="line">        h = ti.<span class="built_in">max</span>(h, rad)</span><br><span class="line">        h = ti.<span class="built_in">min</span>(h, <span class="number">0.0</span>)</span><br><span class="line"></span><br><span class="line">        v = p[<span class="number">1</span>] * ba[<span class="number">0</span>] - p[<span class="number">0</span>] * ba[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> v &gt; <span class="number">0</span>:</span><br><span class="line">            v = <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> v &lt; <span class="number">0.0</span>:</span><br><span class="line">            v = -<span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">        dist = (p - ba * h).norm() * v <span class="comment"># diatance field of 2D-stars</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># render sdf.</span></span><br><span class="line">        <span class="keyword">if</span> dist &lt; <span class="number">0.0</span>:</span><br><span class="line">            pixels[I] = col</span><br></pre></td></tr></table></figure>
+
+<p>调用绘制函数替换绘制直线的部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draw_star(ti.Vector([res[<span class="number">0</span>]//<span class="number">2</span>, res[<span class="number">1</span>]//<span class="number">2</span>]), <span class="number">300.0</span>, ti.Vector([<span class="number">0.1</span>, <span class="number">0.65</span>, <span class="number">0.7</span>]))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../resources/taichi_star/satr5.png" alt="截屏2022-11-08 下午9.18.52.png"></p>
+<p>这样我们就绘制好了一个五角星，然后替换代码之后，每一条点都绘制一个五角星。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.kernel</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">paint</span>():</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> pixels:</span><br><span class="line">        pixels[i, j] = ti.Vector([<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>]) </span><br><span class="line"></span><br><span class="line">    <span class="comment"># draw_star(ti.Vector([res[0]//2, res[1]//2]), 300.0, ti.Vector([0.1, 0.65, 0.7]))</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(pos):</span><br><span class="line">        rad = <span class="number">10.0</span> * (<span class="number">1.0</span> - pos[I].z / z_far)**<span class="number">2</span></span><br><span class="line">        col = color[I] * (<span class="number">1.0</span> - pos[I].z / z_far + <span class="number">0.1</span>) ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">        dist = ((pos[I].x / res[<span class="number">0</span>] - <span class="number">0.5</span>)**<span class="number">2</span> + (pos[I].y / res[<span class="number">1</span>] - <span class="number">0.5</span>)**<span class="number">2</span>)**<span class="number">0.2</span>  <span class="comment"># distance from pos to center.</span></span><br><span class="line">        col = col * (<span class="number">1.0</span> - dist)</span><br><span class="line"></span><br><span class="line">        cur_p, pre_p = pos[I], pos[I] - vel[<span class="literal">None</span>] * dt</span><br><span class="line"></span><br><span class="line">        p1 = project(cur_p)</span><br><span class="line">        p2 = project(pre_p)</span><br><span class="line">        <span class="comment"># draw_line(p1, p2, rad, col)</span></span><br><span class="line">        draw_star(p1, rad, col)</span><br></pre></td></tr></table></figure>
+
+<h2 id="运动"><a href="#运动" class="headerlink" title="运动"></a>运动</h2><p>天添老师实现的运动是根据速度积分实现的。我们这里略做修改，运动不做修改，但是在每一帧初始化的时候，不完全的清除屏幕，这样可以残留上一帧的部分图像，然后实现残影的效果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.kernel</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">paint</span>():</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> pixels:</span><br><span class="line">        pixels[i, j] = ti.Vector([<span class="number">0.8</span>, <span class="number">0.8</span>, <span class="number">0.8</span>]) * pixels[i, j]</span><br><span class="line">    ...</span><br><span class="line">		<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>完整代码参考地址：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ElonKou/taichi_code">https://github.com/ElonKou/taichi_code</a></p>
+<p>最后的效果如开头所示，完结撒花🎉。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/taichi/" rel="tag"># taichi</a>
+              <a href="/tags/SDF/" rel="tag"># SDF</a>
+              <a href="/tags/%E5%A4%AA%E6%9E%81%E5%9B%BE%E5%BD%A2/" rel="tag"># 太极图形</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/17/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%AA%E6%9E%81%E5%9B%BE%E5%BD%A21-taichi%E7%9C%9F%E2%80%9C%E6%98%9F%E2%80%9D%E9%99%85%E7%A9%BF%E8%B6%8A"><span class="nav-number">1.</span> <span class="nav-text">[太极图形1] taichi真“星”际穿越</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#taichi%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">taichi介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-2D%E6%8A%95%E5%BD%B1"><span class="nav-number">4.1.</span> <span class="nav-text">3D-2D投影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDF%E5%92%8C%E5%9F%BA%E4%BA%8ESDF%E7%9A%842D%E5%9B%BE%E5%BD%A2"><span class="nav-number">4.2.</span> <span class="nav-text">SDF和基于SDF的2D图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E5%8A%A8"><span class="nav-number">4.3.</span> <span class="nav-text">运动</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Elon Kou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Elon Kou</p>
+  <div class="site-description" itemprop="description">Programmer & Designer</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ElonKou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ElonKou" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:elonkou@gktime.cc" title="E-Mail → mailto:elonkou@gktime.cc" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/elonkou" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;elonkou" rel="noopener" target="_blank"><i class="fa fa-id-card fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Elon Kou</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
