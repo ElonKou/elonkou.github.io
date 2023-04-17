@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
@@ -186,7 +186,7 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head>
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -270,6 +270,86 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://elonkou.github.io/2023/04/17/cpp-1-construct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Elon Kou">
+      <meta itemprop="description" content="Programmer & Designer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ElonKou's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/17/cpp-1-construct/" class="post-title-link" itemprop="url">C++各种构造函数以及移动构造</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-04-17 19:26:49 / Modified: 19:29:12" itemprop="dateCreated datePublished" datetime="2023-04-17T19:26:49+08:00">2023-04-17</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在C++11中，标准库在<utility>中提供了一个有用的函数std::move，std::move并不能移动任何东西，它唯一的功能是将一个左值强制转化为右值引用，std::move函数可以以非常简单的方式将左值引用转换为右值引用。因此，当我们在设计类的时候，都应该尽量去实现移动构造函数。继而可以通过右值引用使用该值，以用于移动语义，确切地说，它使一个值易于移动。从实现上讲，std::move基本等同于一个类型转换：static_cast<T&&>(lvalue);</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/17/cpp-1-construct/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://elonkou.github.io/2023/04/17/physx51_exp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,10 +375,24 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-04-17 13:16:52 / Modified: 13:28:41" itemprop="dateCreated datePublished" datetime="2023-04-17T13:16:52+08:00">2023-04-17</time>
+              <time title="Created: 2023-04-17 13:16:52 / Modified: 15:04:45" itemprop="dateCreated datePublished" datetime="2023-04-17T13:16:52+08:00">2023-04-17</time>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
 
         </div>
       </header>
@@ -309,71 +403,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>就在前几天，千呼万唤的PhysX 5发布了，PhysX新版本号为5.1.0，这次采用了新的架构，实现了多种物理仿真算法架构的统一。</p>
-</blockquote>
-<p>官方的文档地址为：</p>
-<p><a target="_blank" rel="noopener" href="https://nvidia-omniverse.github.io/PhysX/physx/5.1.0/">Welcome to PhysX - physx 5.1.0 documentation</a></p>
-<p><img src="/2023/04/17/physx51_exp/phy5.0.png" alt="phy5.0.png"></p>
-<h2 id="physx5源码编译"><a class="markdownIt-Anchor" href="#physx5源码编译"></a> PhysX5源码编译</h2>
-<p>在ubuntu 20.04 (clang 10.0)上安装PhysX的编译非常简单，作为商业物理引擎，其代码组织和架构是真的非常优美，算是一个非常优秀的物理引擎了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载代码</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/NVIDIA-Omniverse/PhysX.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装一些依赖库</span></span><br><span class="line">sudo apt-get install build-essential cmake make libfreeglut-dev librapidjson-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成编译项目</span></span><br><span class="line"><span class="built_in">cd</span> physx/</span><br><span class="line">./generate_projects.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 到项目目录下编译源码</span></span><br><span class="line"><span class="built_in">cd</span> compiler/linux-release/</span><br><span class="line">make -j 11</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行demo</span></span><br><span class="line"><span class="built_in">cd</span> ../../bin/linux.clang/release</span><br><span class="line">./SnippetHelloWorld_64</span><br></pre></td></tr></table></figure>
-<p>这样便可以非常容易测试PhysX 5的各种demo了。</p>
-<h2 id="构建自己的physx-demo"><a class="markdownIt-Anchor" href="#构建自己的physx-demo"></a> 构建自己的PhysX Demo</h2>
-<p>通过简单的分析，发现构建一个新的demo，需要在“snippets/compiler/cmake/CMakeLists.txt”进行添加模块的名称，该子模块会在后边附上“physx/snippets/snippetcommon/ClassicMain.cpp”进行编译，链接成为可执行程序。</p>
-<p>在文件“/physx/snippets/snippetcommon/ClassicMain.cpp”中，我们发现函数main内直接调用了新的函数作为主函数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// physx/snippets/snippetcommon/ClassicMain.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="type">int</span> <span class="title">snippetMain</span><span class="params">(<span class="type">int</span>, <span class="type">const</span> <span class="type">char</span>*<span class="type">const</span>*)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">snippetMain</span>(argc, argv);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>这就需要在我们项目中创建该函数。</p>
-<p>接下来就开始实践，首先创建项目目录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建项目目录</span></span><br><span class="line"><span class="built_in">cd</span> physx/snippets</span><br><span class="line"><span class="built_in">mkdir</span> snippetsimpledemo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建程序文件</span></span><br><span class="line">vim SnippetSimpleDemo.cpp</span><br></pre></td></tr></table></figure>
-<p>创建程序文件。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SnippetSimpleDemo.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">snippetMain</span><span class="params">(<span class="type">int</span>, <span class="type">const</span> <span class="type">char</span>* <span class="type">const</span>*)</span> </span>{</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"hello, elonkou!"</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p><code>snippetMain</code>函数就是外部调用的接口函数，这里用来实现包含物理仿真和渲染所有内容。</p>
-<p>这时候我们还不能编译运行，因为我们的新模块还没有被注册。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开文件physx/snippets/compiler/cmake/CMakeLists.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在84行，添加我们的项目名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Include all of the projects</span></span><br><span class="line">SET(SNIPPETS_LIST ArticulationRC ... **SimpleDemo**)</span><br><span class="line">LIST(APPEND SNIPPETS_LIST <span class="variable">${PLATFORM_SNIPPETS_LIST}</span>)</span><br></pre></td></tr></table></figure>
-<p>然后我们尝试编译并且运行。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成编译项目</span></span><br><span class="line"><span class="built_in">cd</span> physx/</span><br><span class="line">./generate_projects.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 到项目目录下编译源码</span></span><br><span class="line"><span class="built_in">cd</span> compiler/linux-release/</span><br><span class="line">make -j 11</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行demo</span></span><br><span class="line"><span class="built_in">cd</span> ../../bin/linux.clang/release</span><br><span class="line">./SnippetSimpleDemo_x64</span><br></pre></td></tr></table></figure>
-<p>我们就能得到 <code>hello, elonkou!</code> 的输出结果，至此，我们的基本框架就算是搭建完成了，接下来就是增加可视化框架和添加真正的物理了。</p>
-<h2 id="可视化框架"><a class="markdownIt-Anchor" href="#可视化框架"></a> 可视化框架</h2>
-<p>前边已经说到，在我们的 <code>snippetMain</code> 函数中，需要包含所有的渲染和物理效果实现的内容。</p>
-<p>首先我们添加一个 <code>renderLoop</code> 的函数用于启动物理模拟，并且在每一帧都调用对应的函数作渲染和物理模拟。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">renderLoop</span><span class="params">()</span> </span>{</span><br><span class="line">    sCamera = <span class="keyword">new</span> Snippets::<span class="built_in">Camera</span>(<span class="built_in">PxVec3</span>(<span class="number">10.0f</span>, <span class="number">10.0f</span>, <span class="number">10.0f</span>), <span class="built_in">PxVec3</span>(<span class="number">-0.6f</span>, <span class="number">-0.2f</span>, <span class="number">-0.7f</span>));</span><br><span class="line">    Snippets::<span class="built_in">setupDefault</span>(<span class="string">"SimpleDemo"</span>, sCamera, keyCallback, renderCallback, exitCallback);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">initPhysics</span>(<span class="literal">true</span>);<span class="comment">// init all physics variables and environment.</span></span><br><span class="line">    <span class="built_in">glutMainLoop</span>(); <span class="comment">// enetr the render loop.</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// call render function.</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">snippetMain</span><span class="params">(<span class="type">int</span>, <span class="type">const</span> <span class="type">char</span>* <span class="type">const</span>*)</span> </span>{</span><br><span class="line">    <span class="built_in">renderLoop</span>(); <span class="comment">// call the renderloop</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>除此之外，需要引入PhysX的一些头文件和定义一些 <code>sCamera</code>的全局变量。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"../snippetrender/SnippetCamera.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"../snippetrender/SnippetRender.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"PxPhysicsAPI.h"</span></span></span><br><span class="line"></span><br><span class="line">Snippets::Camera* sCamera = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
-<p>我们补充上<code>initPhysics</code>函数，里面暂时不处理任何事情。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">initPhysics</span><span class="params">()</span> </span>{</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>需要注意的是 <code>Snippets::setupDefault("SimpleDemo", sCamera, keyCallback, renderCallback, exitCallback);</code> 函数的调用需要 <code>键盘的事件处理函数</code>，<code>渲染的回调函数</code>，<code>退出程序的回调函数</code>，我们需要依次实现一下。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">keyCallback</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> key, <span class="type">const</span> PxTransform&amp; camera)</span> </span>{</span><br><span class="line">    std::cout &lt;&lt; key &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &amp;camera &lt;&lt; std::endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">renderCallback</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">stepPhysics</span>(<span class="literal">true</span>); <span class="comment">// all render/ simulate in this function.</span></span><br><span class="line">    Snippets::<span class="built_in">startRender</span>(sCamera);</span><br><span class="line">    Snippets::<span class="built_in">finishRender</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">exitCallback</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">delete</span> sCamera;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>这里的<code>renderCallback</code>函数在每一帧都会被调用，<code>keyCallback</code>回调函数只有在用户触发见键盘事件之后才会被调用，<code>exitCallback</code>函数当然就是在整个程序退出的时候调用了。</p>
-<p><code>renderCallback</code>中的<code>stepPhysics(true)</code>函数负责每一帧的物体的驱动，暂时也不做处理。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">stepPhysics</span><span class="params">(<span class="type">bool</span>)</span> </span>{</span><br><span class="line">    <span class="comment">// do nothing now.</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>这样我们就完成了一个具有可视化的窗口，并且在每一帧都会调用渲染的函数。</p>
-<h2 id="添加物理"><a class="markdownIt-Anchor" href="#添加物理"></a> 添加物理</h2>
-<p>接下来就是添加真正的物理模拟的部分。</p>
-<p>首先我们需要创建物理模拟所需要的一些参数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> PxDefaultAllocator      gAllocator;</span><br><span class="line"><span class="type">static</span> PxDefaultErrorCallback  gErrorCallback;</span><br><span class="line"><span class="type">static</span> PxFoundation*           gFoundation = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxPhysics*              gPhysics    = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxDefaultCpuDispatcher* gDispatcher = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxScene*                gScene      = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxMaterial*             gMaterial   = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
-<p><code>PxDefaultAllocator</code>负责仿真程序的内存的分配，<code>PxDefaultErrorCallback</code>提供了基础的错误回调函数，<code>PxFoundation</code>指针提供了最基础的模拟仿真所需要的一些信息，<code>PxPhysics</code>物理仿真器的类型。<code>PxDefaultCpuDispatcher</code>用于使用CPU进行计算，<code>PxScene</code>负责当前整个物理场景中的模拟对象的管理，<code>PxMaterial</code>负责管理场景中对象材质。</p>
-<p>有了以上的一些变量之后，我们尝试常创建初始化物理仿真的基本环境，首先是实例化所需要的变量。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">initPhysics</span><span class="params">()</span> </span>{</span><br><span class="line"></span><br><span class="line">    gFoundation = <span class="built_in">PxCreateFoundation</span>(PX_PHYSICS_VERSION, gAllocator, gErrorCallback);</span><br><span class="line">    gPhysics    = <span class="built_in">PxCreatePhysics</span>(PX_PHYSICS_VERSION, *gFoundation, <span class="built_in">PxTolerancesScale</span>(), <span class="literal">true</span>); <span class="comment">// no pvd</span></span><br><span class="line">    gDispatcher = <span class="built_in">PxDefaultCpuDispatcherCreate</span>(<span class="number">2</span>);</span><br><span class="line">    gMaterial   = gPhysics-&gt;<span class="built_in">createMaterial</span>(<span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.6f</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">PxSceneDesc <span class="title">sceneDesc</span><span class="params">(gPhysics-&gt;getTolerancesScale())</span></span>;</span><br><span class="line">    sceneDesc.gravity       = <span class="built_in">PxVec3</span>(<span class="number">0.0f</span>, <span class="number">-9.8f</span>, <span class="number">0.0f</span>);</span><br><span class="line">    sceneDesc.cpuDispatcher = gDispatcher;</span><br><span class="line">    sceneDesc.filterShader  = PxDefaultSimulationFilterShader;</span><br><span class="line"></span><br><span class="line">    gScene = gPhysics-&gt;<span class="built_in">createScene</span>(sceneDesc);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p><code>gMaterial</code>中的三个参数分别是<code>静摩擦力</code>，<code>动摩擦力</code>，<code>回弹系数</code>。</p>
-<p>创建物体的过程也是比较简单，只有两个物体，一个是地平面，另外一个是正方体.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gScene = gPhysics-&gt;<span class="built_in">createScene</span>(sceneDesc);</span><br><span class="line"></span><br><span class="line"><span class="comment">// create background</span></span><br><span class="line">PxRigidStatic* groundPlane = <span class="built_in">PxCreatePlane</span>(*gPhysics, <span class="built_in">PxPlane</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>), *gMaterial);</span><br><span class="line">gScene-&gt;<span class="built_in">addActor</span>(*groundPlane);</span><br><span class="line"></span><br><span class="line"><span class="comment">// create rigid body.</span></span><br><span class="line">PxReal   size  = <span class="built_in">PxReal</span>(<span class="number">1.0</span>);</span><br><span class="line">PxShape* shape = gPhysics-&gt;<span class="built_in">createShape</span>(<span class="built_in">PxBoxGeometry</span>(size, size, size), *gMaterial);</span><br><span class="line"></span><br><span class="line">PxTransform     localTm = <span class="built_in">PxTransform</span>(<span class="built_in">PxVec3</span>(<span class="number">0.0f</span>, <span class="number">3.0f</span>, <span class="number">0.0f</span>) * size);</span><br><span class="line">PxRigidDynamic* body    = gPhysics-&gt;<span class="built_in">createRigidDynamic</span>(localTm);</span><br><span class="line">PxRigidBodyExt::<span class="built_in">updateMassAndInertia</span>(*body, <span class="number">10.0f</span>);</span><br><span class="line">body-&gt;<span class="built_in">attachShape</span>(*shape);</span><br><span class="line">gScene-&gt;<span class="built_in">addActor</span>(*body);</span><br><span class="line"></span><br><span class="line">shape-&gt;<span class="built_in">release</span>();</span><br></pre></td></tr></table></figure>
-<p>注意创建正方体的时候需要给定其shape，这个shape就是当前的物体的碰撞形状。</p>
-<p><code>PxVec3</code>就是普通的向量，<code>PxTransform</code>用来维护各种变换，比如平移变换和旋转变换等。</p>
-<p><code>PxSceneDesc</code>用来维护当前的物理仿真场景中的一些参数，比如重力等。</p>
-<p>接下来就是渲染了，将我们的刚体从场景对象中查询出来，并且全部渲染出来。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">renderCallback</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">stepPhysics</span>(<span class="literal">true</span>);<span class="comment">// all render/ simulate in this function.</span></span><br><span class="line"></span><br><span class="line">    Snippets::<span class="built_in">startRender</span>(sCamera);</span><br><span class="line"></span><br><span class="line">    PxScene* scene;</span><br><span class="line">    <span class="built_in">PxGetPhysics</span>().<span class="built_in">getScenes</span>(&amp;scene, <span class="number">1</span>);</span><br><span class="line">    PxU32 nbActors = scene-&gt;<span class="built_in">getNbActors</span>(PxActorTypeFlag::eRIGID_DYNAMIC | PxActorTypeFlag::eRIGID_STATIC);</span><br><span class="line">    <span class="keyword">if</span> (nbActors) {</span><br><span class="line">        <span class="function">std::vector&lt;PxRigidActor*&gt; <span class="title">actors</span><span class="params">(nbActors)</span></span>;</span><br><span class="line">        scene-&gt;<span class="built_in">getActors</span>(PxActorTypeFlag::eRIGID_DYNAMIC | PxActorTypeFlag::eRIGID_STATIC, <span class="built_in">reinterpret_cast</span>&lt;PxActor**&gt;(&amp;actors[<span class="number">0</span>]), nbActors);</span><br><span class="line">        Snippets::<span class="built_in">renderActors</span>(&amp;actors[<span class="number">0</span>], <span class="built_in">static_cast</span>&lt;PxU32&gt;(actors.<span class="built_in">size</span>()), <span class="literal">true</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    Snippets::<span class="built_in">finishRender</span>();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>在渲染中，调用的<code>stepPhysics</code>函数也需要更新了，这样才能实现运动和碰撞的物理仿真效果。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">stepPhysics</span><span class="params">(<span class="type">bool</span>)</span> </span>{</span><br><span class="line">    gScene-&gt;<span class="built_in">simulate</span>(<span class="number">1.0f</span> / <span class="number">60.0f</span>);</span><br><span class="line">    gScene-&gt;<span class="built_in">fetchResults</span>(<span class="literal">true</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>当然，最后我们还需要对一些变量做清理。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">cleanupPhysics</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">PX_RELEASE</span>(gScene);</span><br><span class="line">    <span class="built_in">PX_RELEASE</span>(gDispatcher);</span><br><span class="line">    <span class="built_in">PX_RELEASE</span>(gFoundation);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">snippetMain</span><span class="params">(<span class="type">int</span>, <span class="type">const</span> <span class="type">char</span>* <span class="type">const</span>*)</span> </span>{</span><br><span class="line">    <span class="built_in">renderLoop</span>(); <span class="comment">// call the renderloop</span></span><br><span class="line">    <span class="built_in">cleanupPhysics</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>这样，我们的物理仿真的效果就完成了，重新配置编译试试看。</p>
-<p>当然，我们现在只有一个box，如果想要添加更多物体，就可以这样尝试。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">    PxTransform     localTm = <span class="built_in">PxTransform</span>(<span class="built_in">PxVec3</span>(<span class="number">0.0f</span>, <span class="number">2.0f</span> * i + <span class="number">1.0f</span>, <span class="number">0.0f</span>) * size);</span><br><span class="line">    PxRigidDynamic* body    = gPhysics-&gt;<span class="built_in">createRigidDynamic</span>(localTm);</span><br><span class="line">    PxRigidBodyExt::<span class="built_in">updateMassAndInertia</span>(*body, <span class="number">10.0f</span>);</span><br><span class="line">    body-&gt;<span class="built_in">attachShape</span>(*shape);</span><br><span class="line">    gScene-&gt;<span class="built_in">addActor</span>(*body);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*================================================================</span></span><br><span class="line"><span class="comment">*  Copyright (C)2022 All rights reserved.</span></span><br><span class="line"><span class="comment">*  FileName : SnippetSimpleDemo.cpp</span></span><br><span class="line"><span class="comment">*  Author   : dlkou</span></span><br><span class="line"><span class="comment">*  Email    : elonkou@ktime.cc</span></span><br><span class="line"><span class="comment">*  Date     : Tue 15 Nov 2022 05:41:15 PM CST</span></span><br><span class="line"><span class="comment">================================================================*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"../snippetrender/SnippetCamera.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"../snippetrender/SnippetRender.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"PxPhysicsAPI.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> physx;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> PxDefaultAllocator      gAllocator;</span><br><span class="line"><span class="type">static</span> PxDefaultErrorCallback  gErrorCallback;</span><br><span class="line"><span class="type">static</span> PxFoundation*           gFoundation = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxPhysics*              gPhysics    = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxDefaultCpuDispatcher* gDispatcher = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxScene*                gScene      = <span class="literal">nullptr</span>;</span><br><span class="line"><span class="type">static</span> PxMaterial*             gMaterial   = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">Snippets::Camera* sCamera = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">keyCallback</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> key, <span class="type">const</span> PxTransform&amp; camera)</span> </span>{</span><br><span class="line">    std::cout &lt;&lt; key &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &amp;camera &lt;&lt; std::endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">stepPhysics</span><span class="params">(<span class="type">bool</span>)</span> </span>{</span><br><span class="line">    gScene-&gt;<span class="built_in">simulate</span>(<span class="number">1.0f</span> / <span class="number">60.0f</span>);</span><br><span class="line">    gScene-&gt;<span class="built_in">fetchResults</span>(<span class="literal">true</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">renderCallback</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">stepPhysics</span>(<span class="literal">true</span>);<span class="comment">// all render/ simulate in this function.</span></span><br><span class="line"></span><br><span class="line">    Snippets::<span class="built_in">startRender</span>(sCamera);</span><br><span class="line"></span><br><span class="line">    PxScene* scene;</span><br><span class="line">    <span class="built_in">PxGetPhysics</span>().<span class="built_in">getScenes</span>(&amp;scene, <span class="number">1</span>);</span><br><span class="line">    PxU32 nbActors = scene-&gt;<span class="built_in">getNbActors</span>(PxActorTypeFlag::eRIGID_DYNAMIC | PxActorTypeFlag::eRIGID_STATIC);</span><br><span class="line">    <span class="keyword">if</span> (nbActors) {</span><br><span class="line">        <span class="function">std::vector&lt;PxRigidActor*&gt; <span class="title">actors</span><span class="params">(nbActors)</span></span>;</span><br><span class="line">        scene-&gt;<span class="built_in">getActors</span>(PxActorTypeFlag::eRIGID_DYNAMIC | PxActorTypeFlag::eRIGID_STATIC, <span class="built_in">reinterpret_cast</span>&lt;PxActor**&gt;(&amp;actors[<span class="number">0</span>]), nbActors);</span><br><span class="line">        Snippets::<span class="built_in">renderActors</span>(&amp;actors[<span class="number">0</span>], <span class="built_in">static_cast</span>&lt;PxU32&gt;(actors.<span class="built_in">size</span>()), <span class="literal">true</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    Snippets::<span class="built_in">finishRender</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">cleanupPhysics</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">PX_RELEASE</span>(gScene);</span><br><span class="line">    <span class="built_in">PX_RELEASE</span>(gDispatcher);</span><br><span class="line">    <span class="built_in">PX_RELEASE</span>(gFoundation);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">exitCallback</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">delete</span> sCamera;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">initPhysics</span><span class="params">()</span> </span>{</span><br><span class="line"></span><br><span class="line">    gFoundation = <span class="built_in">PxCreateFoundation</span>(PX_PHYSICS_VERSION, gAllocator, gErrorCallback);</span><br><span class="line">    gPhysics    = <span class="built_in">PxCreatePhysics</span>(PX_PHYSICS_VERSION, *gFoundation, <span class="built_in">PxTolerancesScale</span>(), <span class="literal">true</span>); <span class="comment">// no pvd</span></span><br><span class="line">    gDispatcher = <span class="built_in">PxDefaultCpuDispatcherCreate</span>(<span class="number">2</span>);</span><br><span class="line">    gMaterial   = gPhysics-&gt;<span class="built_in">createMaterial</span>(<span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.6f</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">PxSceneDesc <span class="title">sceneDesc</span><span class="params">(gPhysics-&gt;getTolerancesScale())</span></span>;</span><br><span class="line">    sceneDesc.gravity       = <span class="built_in">PxVec3</span>(<span class="number">0.0f</span>, <span class="number">-9.8f</span>, <span class="number">0.0f</span>);</span><br><span class="line">    sceneDesc.cpuDispatcher = gDispatcher;</span><br><span class="line">    sceneDesc.filterShader  = PxDefaultSimulationFilterShader;</span><br><span class="line"></span><br><span class="line">    gScene = gPhysics-&gt;<span class="built_in">createScene</span>(sceneDesc);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create background</span></span><br><span class="line">    PxRigidStatic* groundPlane = <span class="built_in">PxCreatePlane</span>(*gPhysics, <span class="built_in">PxPlane</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>), *gMaterial);</span><br><span class="line">    gScene-&gt;<span class="built_in">addActor</span>(*groundPlane);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create rigid body.</span></span><br><span class="line">    PxReal   size  = <span class="built_in">PxReal</span>(<span class="number">1.0</span>);</span><br><span class="line">    PxShape* shape = gPhysics-&gt;<span class="built_in">createShape</span>(<span class="built_in">PxBoxGeometry</span>(size, size, size), *gMaterial);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">        <span class="comment">// PxTransform     move    = PxTransform(PxVec3(0.0f, 5.0f, 0.0f));</span></span><br><span class="line">        <span class="comment">// PxTransform     localTm = PxTransform(move.transform(PxVec3(0.0f, 1.0f, 0.0f)));</span></span><br><span class="line">        <span class="comment">// PxTransform     localTm = PxTransform(PxVec3(0.0f, 0.0f, 2.0f * i) * size);</span></span><br><span class="line">        PxTransform     localTm = <span class="built_in">PxTransform</span>(<span class="built_in">PxVec3</span>(<span class="number">0.0f</span>, <span class="number">2.0f</span> * i + <span class="number">1.0f</span>, <span class="number">0.0f</span>) * size);</span><br><span class="line">        PxRigidDynamic* body    = gPhysics-&gt;<span class="built_in">createRigidDynamic</span>(localTm);</span><br><span class="line">        PxRigidBodyExt::<span class="built_in">updateMassAndInertia</span>(*body, <span class="number">10.0f</span>);</span><br><span class="line">        body-&gt;<span class="built_in">attachShape</span>(*shape);</span><br><span class="line">        gScene-&gt;<span class="built_in">addActor</span>(*body);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    shape-&gt;<span class="built_in">release</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">renderLoop</span><span class="params">()</span> </span>{</span><br><span class="line">    sCamera = <span class="keyword">new</span> Snippets::<span class="built_in">Camera</span>(<span class="built_in">PxVec3</span>(<span class="number">10.0f</span>, <span class="number">10.0f</span>, <span class="number">10.0f</span>), <span class="built_in">PxVec3</span>(<span class="number">-0.6f</span>, <span class="number">-0.2f</span>, <span class="number">-0.7f</span>));</span><br><span class="line">    Snippets::<span class="built_in">setupDefault</span>(<span class="string">"SimpleDemo"</span>, sCamera, keyCallback, renderCallback, exitCallback);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">initPhysics</span>();<span class="comment">// init all physics variables and environment.</span></span><br><span class="line">    <span class="built_in">glutMainLoop</span>(); <span class="comment">// enetr the render loop.</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">snippetMain</span><span class="params">(<span class="type">int</span>, <span class="type">const</span> <span class="type">char</span>* <span class="type">const</span>*)</span> </span>{</span><br><span class="line">    <span class="built_in">renderLoop</span>(); <span class="comment">// call the renderloop</span></span><br><span class="line">    <span class="built_in">cleanupPhysics</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>编译链接然后运行，效果就是最开始的图那样，完结撒花🎉！</p>
-
+          <p>就在前几天，千呼万唤的PhysX 5发布了，PhysX新版本号为5.1.0，这次采用了新的架构，实现了多种物理仿真算法架构的统一。在ubuntu 20.04 (clang 10.0)上安装PhysX的编译非常简单，作为商业物理引擎，其代码组织和架构是真的非常优美，算是一个非常优秀的物理引擎了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/17/physx51_exp/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -417,10 +455,24 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-04-17 11:49:52 / Modified: 13:37:11" itemprop="dateCreated datePublished" datetime="2023-04-17T11:49:52+08:00">2023-04-17</time>
+              <time title="Created: 2023-04-17 11:49:52 / Modified: 15:04:45" itemprop="dateCreated datePublished" datetime="2023-04-17T11:49:52+08:00">2023-04-17</time>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>6 mins.</span>
+            </span>
 
         </div>
       </header>
@@ -431,75 +483,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="taichi介绍"><a class="markdownIt-Anchor" href="#taichi介绍"></a> taichi介绍</h1>
-<p>太极图形的刘天添之前直播讲解了 <strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/574728205">《直播活动 | 96 行代码的「星际穿越」 特效动画，新手也能实现！》</a></strong>，看起来非常趣，直播的时候我也实现了一下，只不过当时直播到后边没时间写了，就搁置了，今天刚好有时间，所以再来完善一下。</p>
-<p>直播课程录播回放在这里：</p>
-<p><strong><strong>从 0 到 1 用 Taichi 实现「星际穿越」特效动画 | 太极图形课讲师回归！</strong></strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1at4y1K76P">从 0 到 1 用 Taichi 实现「星际穿越」特效动画 | 太极图形课讲师回归！_哔哩哔哩_bilibili</a></p>
-<p>taichi是一款嵌入在Python中的高性能编程语言，适用于并行计算的一些场景，文档在这里：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.taichi-lang.org/">Taichi Docs</a></p>
-<h1 id="效果展示"><a class="markdownIt-Anchor" href="#效果展示"></a> 效果展示</h1>
-<p>首先展示一“真”星际穿越的效果，为什么说“真”呢，因为我们真的有“星星”😝。</p>
-<p><img src="/2023/04/17/taichi_1_star/star1.gif" alt="屏幕录制2022-11-08 下午8.09.54.gif"></p>
-<p>静态图像可以看出星星</p>
-<p><img src="/2023/04/17/taichi_1_star/star2.png" alt="截屏2022-11-08 下午7.57.26.png"></p>
-<h1 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h1>
-<p>框架实现的内容也比较简单，使用几个三维的field来维护全局的数据。</p>
-<ul>
-<li>首先对整个空间进行栅格化，每个网格中安排一个粒子，然后初始化粒子的基本属性比如位置，颜色等，速度等。</li>
-<li>接下来就是3D-2D投影，顾名思义，就是将空间中的物体位置投影到2D屏幕坐标中。</li>
-<li>接下来绘制物体的时候用到了一种SDF的模型，这种隐式的物体表示方式将空间视作一个物体的形状场，场中的每个采样点的数值表示距离此物体的边界的最近距离。</li>
-</ul>
-<p>天添老师在绘制物体的时候，介绍了几个优化方式。其中的一个就是，首先计算一个bounding box，然后对栅格化的像素画着色，这样可以避免处理大量的无效的像素。另外一个优化就是使用了taichi并行加速的计算，这是保证实时的关键。</p>
-<h2 id="3d-2d投影"><a class="markdownIt-Anchor" href="#3d-2d投影"></a> 3D-2D投影</h2>
-<p>投影这里采用的原始的代码实现（照抄），基本就是一个坐标变换。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">project</span>(<span class="params">pos_3d</span>):</span><br><span class="line">    center = ti.Vector(res) / <span class="number">2</span></span><br><span class="line">    w = tan_half_fov * pos_3d.z</span><br><span class="line">    res_pos = (ti.Vector([pos_3d.x, pos_3d.y]) - center) / w</span><br><span class="line">    screen_pos = res_pos * res[<span class="number">1</span>] + center</span><br><span class="line">    <span class="keyword">return</span> screen_pos</span><br></pre></td></tr></table></figure>
-<p>投影完成之后，问题就是如果绘制这个屏幕上的物体。这里就要用到SDF绘制的内容。</p>
-<h2 id="sdf和基于sdf的2d图形"><a class="markdownIt-Anchor" href="#sdf和基于sdf的2d图形"></a> SDF和基于SDF的2D图形</h2>
-<p>绘制最简单的图形就是2D圆了，那么如何使用SDF表示一个圆呢？</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mo>=</mo><mi mathvariant="normal">∥</mi><mi mathvariant="bold-italic">p</mi><mo>−</mo><mi mathvariant="bold-italic">o</mi><mi mathvariant="normal">∥</mi><mo>−</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">d = \Vert \bm p - \bm o \Vert - r
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∥</span><span class="mord"><span class="mord boldsymbol">p</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord boldsymbol">o</span></span><span class="mord">∥</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></span></p>
-<p>这就是最简单的一个圆的SDF表示，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold-italic">p</mi></mrow><annotation encoding="application/x-tex">\bm p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord boldsymbol">p</span></span></span></span></span> 表示空间中任意一点，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold-italic">o</mi></mrow><annotation encoding="application/x-tex">\bm o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44444em;vertical-align:0em;"></span><span class="mord"><span class="mord boldsymbol">o</span></span></span></span></span> 表示圆形的位置，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 当然就是半径了。这样表示之后，如何渲染到屏幕上呢？一种简单的方式就是直接遍历屏幕上所有的点，如果这个点在圆的范围以内，就绘制出来，否则填充一个背景色。</p>
-<p>到了这里就发现SDF的妙用，即sdf的每一个采样数据代表了空间中这一点到物体的最近表面的距离，这样可以直接用来判断点是否在圆内。</p>
-<p>接下来看一下代码实现，首先定义圆的SDF模型。</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> circle(<span class="type">vec2</span> d, <span class="type">float</span> radius){</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">length</span>(d) - radius;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>接下来就是渲染，渲染出来的效果如下图</p>
-<p><img src="/2023/04/17/taichi_1_star/star3.png" alt="截屏2022-11-08 下午8.57.21.png"></p>
-<p>中间蓝色表示SDF为负值，外边紫色表示正指，值的大小表示到表面距离的远近，鼠标点也绘制了一个蓝色实心圆圈。</p>
-<p>上图是使用GLSL渲染完成的，完整的shader代码如下。</p>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">out</span> <span class="type">vec4</span> fragColor;</span><br><span class="line"><span class="keyword">in</span> <span class="type">vec2</span> fragCoord;</span><br><span class="line"></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> texture_diffuse1;</span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec3</span>      iResolution;           <span class="comment">// [x] viewport resolution (in pixels)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iTime;                 <span class="comment">// [x] shader playback time (in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iTimeDelta;            <span class="comment">// [x] render time (in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">int</span>       iFrame;                <span class="comment">// [x] shader playback frame</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iChannelTime[<span class="number">4</span>];       <span class="comment">// [ ] channel playback time (in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec3</span>      iChannelResolution[<span class="number">4</span>]; <span class="comment">// [ ] channel resolution (in pixels)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec4</span>      iMouse;                <span class="comment">// [x] mouse pixel coords. xy: current (if MLB down), zw: click</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel0;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel1;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel2;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">sampler2D</span> iChannel3;             <span class="comment">// [x] input channel. XX = 2D/Cube</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">vec4</span>      iDate;                 <span class="comment">// [ ] (year, month, day, time in seconds)</span></span><br><span class="line"><span class="keyword">uniform</span> <span class="type">float</span>     iSampleRate;           <span class="comment">// [ ] sound sample rate (i.e., 44100)</span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> circle(<span class="type">vec2</span> d, <span class="type">float</span> radius){</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">length</span>(d) - radius;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">vec3</span> render(<span class="type">vec2</span> uv, <span class="type">float</span> d){</span><br><span class="line">    <span class="type">vec2</span> m  = (<span class="number">2.0</span> * iMouse.xy - iResolution.xy)/iResolution.y;</span><br><span class="line">    <span class="type">vec3</span> col = <span class="type">vec3</span>(<span class="number">0.0</span>);</span><br><span class="line">    <span class="type">vec3</span> inner_col = <span class="type">vec3</span>(<span class="number">0.25</span>, <span class="number">0.85</span>, <span class="number">1.0</span>);</span><br><span class="line">    <span class="type">vec3</span> outer_col = <span class="type">vec3</span>(<span class="number">0.65</span>, <span class="number">0.35</span>, <span class="number">0.76</span>);</span><br><span class="line">    <span class="keyword">if</span>(d &lt; <span class="number">0.0</span>){</span><br><span class="line">        col = inner_col;</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        col = outer_col;</span><br><span class="line">    }</span><br><span class="line">    col = col * (<span class="number">1.0</span> -  <span class="built_in">exp</span>(<span class="number">-6.0</span> * <span class="built_in">abs</span>(d)));</span><br><span class="line">    col = col * (<span class="number">0.8</span> + <span class="number">0.2</span> * <span class="built_in">cos</span>(d * <span class="number">250</span>));</span><br><span class="line">    <span class="type">float</span> c = <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">0.01</span>, <span class="built_in">abs</span>(d));</span><br><span class="line">    col = <span class="built_in">mix</span>(col, <span class="type">vec3</span>(<span class="number">1.0</span>), <span class="number">1.0</span> - c);</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> dc = circle(m, <span class="number">0.5</span>);</span><br><span class="line">    col = <span class="built_in">mix</span>(col, <span class="type">vec3</span>(<span class="number">0.8</span>, <span class="number">0.5</span>, <span class="number">0.0</span>), <span class="number">1.0</span> - <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">0.004</span>, <span class="built_in">abs</span>(<span class="built_in">length</span>(uv-m)-<span class="built_in">abs</span>(dc)) <span class="number">-0.002</span>));</span><br><span class="line">    col = <span class="built_in">mix</span>(col, <span class="type">vec3</span>(<span class="number">0.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>), <span class="number">1.0</span> - <span class="built_in">smoothstep</span>(<span class="number">0.0</span>, <span class="number">0.003</span>, <span class="built_in">length</span>(uv - m) <span class="number">-0.015</span>));</span><br><span class="line">    <span class="keyword">return</span> col;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> main() {</span><br><span class="line">    <span class="type">vec2</span> uv = (<span class="number">2.0</span> * fragCoord - iResolution.xy)/iResolution.y;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> d = circle(uv, <span class="number">0.5</span>); <span class="comment">// comnpute disatnce</span></span><br><span class="line">    <span class="type">vec3</span> col = render(uv, d);  <span class="comment">// render</span></span><br><span class="line"></span><br><span class="line">    fragColor = <span class="type">vec4</span>(col, <span class="number">1.0</span>f);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>渲染部分参照</p>
-<p><a target="_blank" rel="noopener" href="https://iquilezles.org/articles/distfunctions2d/">Inigo Quilez</a></p>
-<p>使用taichi的语言绘制就是这样的内容</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_particle</span>(<span class="params">c, rad, col</span>):</span><br><span class="line">    x_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.x - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.x + rad + <span class="number">1</span>), res[<span class="number">0</span>]))</span><br><span class="line">    y_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.y - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.y + rad + <span class="number">1</span>), res[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(ti.ndrange(x_range, y_range)):</span><br><span class="line">        dist = (I - c).norm() <span class="comment"># compuate distance</span></span><br><span class="line">        <span class="keyword">if</span> dist &lt; rad:</span><br><span class="line">            pixels[I] = col <span class="comment"># writed color into pixel field.</span></span><br></pre></td></tr></table></figure>
-<p>同样，2D直线绘制也很简单，只不过需要注意，两端点出的SDF场和中间直线的场的关系。</p>
-<p>对于空间中任意一点，可以通过投影到线段上的法线，判断符号来确定真正的距离。</p>
-<p>在这里的，我的视线如下图所示，和天添老师实现略有不同，但原理是一样的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_line</span>(<span class="params">p1, p2, rad, col</span>):</span><br><span class="line">    x_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(ti.<span class="built_in">min</span>(p1.x, p2.x) - rad - <span class="number">1.0</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(ti.<span class="built_in">max</span>(p1.x, p2.x) + rad + <span class="number">1.0</span>), res[<span class="number">0</span>]))</span><br><span class="line">    y_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(ti.<span class="built_in">min</span>(p1.y, p2.y) - rad - <span class="number">1.0</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(ti.<span class="built_in">max</span>(p1.y, p2.y) + rad + <span class="number">1.0</span>), res[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(ti.ndrange(x_range, y_range)):</span><br><span class="line">        p1I = I - p1</span><br><span class="line">        p2I = I - p2</span><br><span class="line">        p1p2_norm = (p2 - p1).normalized()</span><br><span class="line">        p = p1 + p1I.dot(p1p2_norm) * p1p2_norm  <span class="comment"># point on th line of [p1, p2]</span></span><br><span class="line">        dist_p = (I - p).norm()</span><br><span class="line">        dist_p1p2 = ti.<span class="built_in">min</span>(p1I.norm(), p2I.norm())</span><br><span class="line">        dist_line = dist_p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (p1I.dot(p1p2_norm) &lt; <span class="number">0</span>) <span class="keyword">or</span> (p2I.dot(p1p2_norm) &gt; <span class="number">0</span>): <span class="comment"># compuate range</span></span><br><span class="line">            dist_line = dist_p1p2</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> dist_line &lt; rad:</span><br><span class="line">            pixels[I] = col</span><br></pre></td></tr></table></figure>
-<p>当然，我们既然写的是星际穿越，我们就要绘制一系列移动的星星，不然怎么叫“星”际穿越呢，哈哈哈哈。</p>
-<p>这里参照了shadertoy 巨佬iq的实现，SDF在模型表示上潜力巨大，甚至可以绘制人物，膜！</p>
-<p><a target="_blank" rel="noopener" href="https://iquilezles.org/articles/distfunctions2d/">Inigo Quilez</a></p>
-<p>首先GLSL的实现</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> sdStar5(<span class="keyword">in</span> vec2 p, <span class="keyword">in</span> <span class="built_in">float</span> r, <span class="keyword">in</span> <span class="built_in">float</span> rf)</span><br><span class="line">{</span><br><span class="line">    const vec2 k1 = vec2(<span class="number">0.809016994375</span>, -<span class="number">0.587785252292</span>);</span><br><span class="line">    const vec2 k2 = vec2(-k1.x,k1.y);</span><br><span class="line">    p.x = <span class="built_in">abs</span>(p.x);</span><br><span class="line">    p -= <span class="number">2.0</span>*<span class="built_in">max</span>(dot(k1,p),<span class="number">0.0</span>)*k1;</span><br><span class="line">    p -= <span class="number">2.0</span>*<span class="built_in">max</span>(dot(k2,p),<span class="number">0.0</span>)*k2;</span><br><span class="line">    p.x = <span class="built_in">abs</span>(p.x);</span><br><span class="line">    p.y -= r;</span><br><span class="line">    vec2 ba = rf*vec2(-k1.y,k1.x) - vec2(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">float</span> h = clamp( dot(p,ba)/dot(ba,ba), <span class="number">0.0</span>, r );</span><br><span class="line">    <span class="keyword">return</span> length(p-ba*h) * sign(p.y*ba.x-p.x*ba.y);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>然后替换距离场。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> d = sdStar5(uv, <span class="number">0.5</span>, <span class="number">0.6</span>);</span><br></pre></td></tr></table></figure>
-<p>这样我们就可以绘制一个五角星了。</p>
-<p><img src="/2023/04/17/taichi_1_star/star4.png" alt="截屏2022-11-08 下午9.17.25.png"></p>
-<p>然后是taichi的实现，在taichi实现上，我们需要对屏幕的坐标做一点小小的变化。</p>
-<p>就是需要将屏幕上坐标从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x_0, x_1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>y</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[y_0, y_1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 都变换到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mo>−</mo><mn>0.5</mn><mo separator="true">,</mo><mn>0.5</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[-0.5, 0.5]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mclose">]</span></span></span></span>上，这样方便我们的绘制（理论上不用变化坐标依然可以绘制）。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.func</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_star</span>(<span class="params">c, rad, col</span>):</span><br><span class="line">    rf = <span class="number">0.6</span></span><br><span class="line">    x_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.x - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.x + rad + <span class="number">1</span>), res[<span class="number">0</span>]))</span><br><span class="line">    y_range = (ti.<span class="built_in">max</span>(<span class="built_in">int</span>(c.y - rad - <span class="number">1</span>), <span class="number">0</span>), ti.<span class="built_in">min</span>(<span class="built_in">int</span>(c.y + rad + <span class="number">1</span>), res[<span class="number">1</span>]))</span><br><span class="line">    width = x_range[<span class="number">1</span>] - x_range[<span class="number">0</span>]</span><br><span class="line">    height = y_range[<span class="number">1</span>] - y_range[<span class="number">0</span>]</span><br><span class="line">    rad = rad / width</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(ti.ndrange(x_range, y_range)):</span><br><span class="line">        <span class="comment"># convert image space to viewport.</span></span><br><span class="line">        p = I - ti.Vector([(x_range[<span class="number">0</span>] + x_range[<span class="number">1</span>]) * <span class="number">0.5</span>, (y_range[<span class="number">0</span>] + y_range[<span class="number">1</span>]) * <span class="number">0.5</span>])</span><br><span class="line">        p[<span class="number">0</span>] = p[<span class="number">0</span>] / width  <span class="comment"># [-0.5, 0.5]</span></span><br><span class="line">        p[<span class="number">1</span>] = p[<span class="number">1</span>] / height  <span class="comment"># [-0.5, 0.5]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># generate distance field of 2D-stars</span></span><br><span class="line">        k1 = ti.Vector([<span class="number">0.809016994375</span>, -<span class="number">0.587785252292</span>])</span><br><span class="line">        k2 = ti.Vector([-k1[<span class="number">0</span>], k1[<span class="number">1</span>]])</span><br><span class="line">        p[<span class="number">0</span>] = ti.<span class="built_in">abs</span>(p[<span class="number">0</span>])</span><br><span class="line">        p -= <span class="number">2.0</span> * ti.<span class="built_in">max</span>(k1.dot(p), <span class="number">0.0</span>) * k1</span><br><span class="line">        p -= <span class="number">2.0</span> * ti.<span class="built_in">max</span>(k2.dot(p), <span class="number">0.0</span>) * k2</span><br><span class="line">        p[<span class="number">0</span>] = ti.<span class="built_in">abs</span>(p[<span class="number">0</span>])</span><br><span class="line">        p[<span class="number">1</span>] -= rad</span><br><span class="line"></span><br><span class="line">        ba = rf * ti.Vector([-k1[<span class="number">1</span>], k1[<span class="number">0</span>]]) - ti.Vector([<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">        h = p.dot(ba) / ba.dot(ba)</span><br><span class="line">        h = ti.<span class="built_in">max</span>(h, rad)</span><br><span class="line">        h = ti.<span class="built_in">min</span>(h, <span class="number">0.0</span>)</span><br><span class="line"></span><br><span class="line">        v = p[<span class="number">1</span>] * ba[<span class="number">0</span>] - p[<span class="number">0</span>] * ba[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> v &gt; <span class="number">0</span>:</span><br><span class="line">            v = <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> v &lt; <span class="number">0.0</span>:</span><br><span class="line">            v = -<span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">        dist = (p - ba * h).norm() * v <span class="comment"># diatance field of 2D-stars</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># render sdf.</span></span><br><span class="line">        <span class="keyword">if</span> dist &lt; <span class="number">0.0</span>:</span><br><span class="line">            pixels[I] = col</span><br></pre></td></tr></table></figure>
-<p>调用绘制函数替换绘制直线的部分</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draw_star(ti.Vector([res[<span class="number">0</span>]//<span class="number">2</span>, res[<span class="number">1</span>]//<span class="number">2</span>]), <span class="number">300.0</span>, ti.Vector([<span class="number">0.1</span>, <span class="number">0.65</span>, <span class="number">0.7</span>]))</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/04/17/taichi_1_star/satr5.png" alt="截屏2022-11-08 下午9.18.52.png"></p>
-<p>这样我们就绘制好了一个五角星，然后替换代码之后，每一条点都绘制一个五角星。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.kernel</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">paint</span>():</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> pixels:</span><br><span class="line">        pixels[i, j] = ti.Vector([<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>]) </span><br><span class="line"></span><br><span class="line">    <span class="comment"># draw_star(ti.Vector([res[0]//2, res[1]//2]), 300.0, ti.Vector([0.1, 0.65, 0.7]))</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> ti.grouped(pos):</span><br><span class="line">        rad = <span class="number">10.0</span> * (<span class="number">1.0</span> - pos[I].z / z_far)**<span class="number">2</span></span><br><span class="line">        col = color[I] * (<span class="number">1.0</span> - pos[I].z / z_far + <span class="number">0.1</span>) ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">        dist = ((pos[I].x / res[<span class="number">0</span>] - <span class="number">0.5</span>)**<span class="number">2</span> + (pos[I].y / res[<span class="number">1</span>] - <span class="number">0.5</span>)**<span class="number">2</span>)**<span class="number">0.2</span>  <span class="comment"># distance from pos to center.</span></span><br><span class="line">        col = col * (<span class="number">1.0</span> - dist)</span><br><span class="line"></span><br><span class="line">        cur_p, pre_p = pos[I], pos[I] - vel[<span class="literal">None</span>] * dt</span><br><span class="line"></span><br><span class="line">        p1 = project(cur_p)</span><br><span class="line">        p2 = project(pre_p)</span><br><span class="line">        <span class="comment"># draw_line(p1, p2, rad, col)</span></span><br><span class="line">        draw_star(p1, rad, col)</span><br></pre></td></tr></table></figure>
-<h2 id="运动"><a class="markdownIt-Anchor" href="#运动"></a> 运动</h2>
-<p>天添老师实现的运动是根据速度积分实现的。我们这里略做修改，运动不做修改，但是在每一帧初始化的时候，不完全的清除屏幕，这样可以残留上一帧的部分图像，然后实现残影的效果。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ti.kernel</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">paint</span>():</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> pixels:</span><br><span class="line">        pixels[i, j] = ti.Vector([<span class="number">0.8</span>, <span class="number">0.8</span>, <span class="number">0.8</span>]) * pixels[i, j]</span><br><span class="line">    ...</span><br><span class="line">		<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>完整代码参考地址：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ElonKou/taichi_code">https://github.com/ElonKou/taichi_code</a></p>
-<p>最后的效果如开头所示，完结撒花🎉。</p>
-
+          <p>太极图形的刘天添之前直播讲解了 [《直播活动 | 96 行代码的「星际穿越」 特效动画，新手也能实现！》]，看起来非常趣，直播的时候我也实现了一下，只不过当时直播到后边没时间写了，就搁置了，今天刚好有时间，所以再来完善一下。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/17/taichi_1_star/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -549,10 +541,24 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-17 13:28:39" itemprop="dateModified" datetime="2023-04-17T13:28:39+08:00">2023-04-17</time>
+                <time title="Modified: 2023-04-17 15:04:45" itemprop="dateModified" datetime="2023-04-17T15:04:45+08:00">2023-04-17</time>
               </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>395</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
 
         </div>
       </header>
@@ -563,21 +569,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>Welcome to [Hexo]This is your very first post. Check [documentation]for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting] or you can ask me on [GitHub].</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/16/hello-world/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -660,14 +660,14 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -710,11 +710,41 @@ mjx-container[display="true"] + br {
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Elon Kou</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">18 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
         
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -729,6 +759,7 @@ mjx-container[display="true"] + br {
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -742,6 +773,65 @@ mjx-container[display="true"] + br {
 
 <script src="/js/next-boot.js"></script>
 
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
 
 
@@ -761,6 +851,7 @@ mjx-container[display="true"] + br {
 
 
 
+    <div id="pjax">
   
 
   
@@ -769,6 +860,27 @@ mjx-container[display="true"] + br {
 
 
   
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: '#fff',
+  backgroundColor: '#fff',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+    </div>
 </body>
 </html>
